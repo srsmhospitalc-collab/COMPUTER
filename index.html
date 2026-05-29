@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Parts Store</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#f0f2f5}
+.container{max-width:1000px;margin:0 auto;padding:20px}
+h1{text-align:center;margin:20px 0;color:#1a73e8}
+.nav{background:#fff;padding:15px;border-radius:10px;margin-bottom:20px;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
+.nav a{margin:0 10px;text-decoration:none;color:#1a73e8;font-weight:bold}
+.card{background:#fff;padding:20px;margin:15px 0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.btn{display:inline-block;background:#1a73e8;color:#fff;padding:12px 25px;border-radius:8px;text-decoration:none;margin-top:10px;font-weight:bold}
+.btn:hover{background:#1557b0}
+.page{display:none}
+.page.active{display:block}
+.detail{color:#555;margin:8px 0;line-height:1.6}
+.price{color:#0f9d58;font-size:20px;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="nav">
+    <a href="#home" onclick="showPage('home')">Home</a>
+    <a href="#cpu" onclick="showPage('cpu')">CPU</a>
+    <a href="#printer" onclick="showPage('printer')">Printer</a>
+    <a href="#monitor" onclick="showPage('monitor')">Monitor</a>
+    <a href="#mouse" onclick="showPage('mouse')">Mouse</a>
+    <a href="#keyboard" onclick="showPage('keyboard')">Keyboard</a>
+  </div>
+
+  <!-- MAIN PAGE -->
+  <div id="home" class="page active">
+    <h1>Computer Parts Collection</h1>
+    
+    <div class="card">
+      <h2>CPU - Processor</h2>
+      <p class="detail">Computer ka dimag. Intel i5, i7, AMD Ryzen sab available. Gaming aur work ke liye best.</p>
+      <p class="price">Starting ₹8,999</p>
+      <a href="#cpu" class="btn" onclick="showPage('cpu')">CPU Details</a>
+    </div>
+
+    <div class="card">
+      <h2>Printer</h2>
+      <p class="detail">Laser aur Inkjet printer. HP, Canon, Epson. Home aur office use ke liye. WiFi wale bhi.</p>
+      <p class="price">Starting ₹4,499</p>
+      <a href="#printer" class="btn" onclick="showPage('printer')">Printer Details</a>
+    </div>
+
+    <div class="card">
+      <h2>Monitor</h2>
+      <p class="detail">24 inch se 32 inch tak. Full HD, 4K, Gaming 144Hz. Dell, LG, Samsung display.</p>
+      <p class="price">Starting ₹7,999</p>
+      <a href="#monitor" class="btn" onclick="showPage('monitor')">Monitor Details</a>
+    </div>
+
+    <div class="card">
+      <h2>Mouse</h2>
+      <p class="detail">Wired aur Wireless mouse. Gaming RGB mouse bhi. Logitech, HP, Dell sab brand.</p>
+      <p class="price">Starting ₹299</p>
+      <a href="#mouse" class="btn" onclick="showPage('mouse')">Mouse Details</a>
+    </div>
+
+    <div class="card">
+      <h2>Keyboard</h2>
+      <p class="detail">Mechanical aur Membrane keyboard. Backlit, Wireless options. TVS, Logitech, HP.</p>
+      <p class="price">Starting ₹599</p>
+      <a href="#keyboard" class="btn" onclick="showPage('keyboard')">Keyboard Details</a>
+    </div>
+  </div>
+
+  <!-- CPU PAGE -->
+  <div id="cpu" class="page">
+    <div class="card">
+      <h1>CPU / Processor</h1>
+      <p class="detail">CPU yani Central Processing Unit computer ka main chip hai. Sare calculation yehi karta hai.</p>
+      <p class="detail"><b>Popular Models:</b> Intel i3-12100, i5-12400, i7-12700, AMD Ryzen 5 5600G, Ryzen 7 5700X</p>
+      <p class="detail"><b>Use:</b> Gaming, Video Editing, Office Work, Coding</p>
+      <p class="price">Price Range: ₹8,999 - ₹35,000</p>
+      <a href="#home" class="btn" onclick="showPage('home')">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- PRINTER PAGE -->
+  <div id="printer" class="page">
+    <div class="card">
+      <h1>Printer</h1>
+      <p class="detail">Documents aur photo print karne ke liye. Inkjet sasta hai, Laser fast hai.</p>
+      <p class="detail"><b>Types:</b> Inkjet, Laser, All-in-One with Scanner</p>
+      <p class="detail"><b>Best Brands:</b> HP DeskJet, Canon Pixma, Epson EcoTank, Brother Laser</p>
+      <p class="price">Price Range: ₹4,499 - ₹18,000</p>
+      <a href="#home" class="btn" onclick="showPage('home')">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- MONITOR PAGE -->
+  <div id="monitor" class="page">
+    <div class="card">
+      <h1>Monitor / Display</h1>
+      <p class="detail">Computer ka screen. Size aur resolution se quality decide hoti hai.</p>
+      <p class="detail"><b>Sizes:</b> 22 inch, 24 inch, 27 inch, 32 inch</p>
+      <p class="detail"><b>Features:</b> Full HD 1080p, 2K QHD, 4K UHD, 75Hz, 144Hz Gaming</p>
+      <p class="price">Price Range: ₹7,999 - ₹45,000</p>
+      <a href="#home" class="btn" onclick="showPage('home')">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- MOUSE PAGE -->
+  <div id="mouse" class="page">
+    <div class="card">
+      <h1>Mouse</h1>
+      <p class="detail">Cursor control karne ke liye. Gaming me DPI matter karta hai.</p>
+      <p class="detail"><b>Types:</b> Wired USB, Wireless 2.4GHz, Bluetooth</p>
+      <p class="detail"><b>Best For:</b> Office: Logitech M90, Gaming: Logitech G102, HP M270</p>
+      <p class="price">Price Range: ₹299 - ₹3,500</p>
+      <a href="#home" class="btn" onclick="showPage('home')">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- KEYBOARD PAGE -->
+  <div id="keyboard" class="page">
+    <div class="card">
+      <h1>Keyboard</h1>
+      <p class="detail">Typing ke liye. Mechanical keyboard typing experience best deta hai.</p>
+      <p class="detail"><b>Types:</b> Membrane, Mechanical Blue/Red Switch, Wireless</p>
+      <p class="detail"><b>Brands:</b> TVS Gold, Logitech K380, HP K500, Cosmic Byte</p>
+      <p class="price">Price Range: ₹599 - ₹8,000</p>
+      <a href="#home" class="btn" onclick="showPage('home')">Back to Home</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
