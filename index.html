@@ -136,5 +136,34 @@ h1{text-align:center;margin:20px 0;color:#1a73e8}
 </div>
 
 </script>
+  <div id="timer-box" style="position:fixed; top:10px; right:10px; background:black; color:white; padding:10px; border-radius:8px; font-size:20px; z-index:9999;">
+    Wapas ja rahe hain: <span id="countdown">22</span>s
+</div>
+
+<script>
+    // URL se data nikal rahe hain
+    const urlParams = new URLSearchParams(window.location.search);
+    const returnUrl = urlParams.get('return_url');
+    let timeLeft = parseInt(urlParams.get('time')) || 22;
+
+    const countdownElement = document.getElementById('countdown');
+    
+    // Har 1 second me timer kam karo
+    const timer = setInterval(function() {
+        timeLeft--;
+        countdownElement.textContent = timeLeft;
+        
+        // Jab 0 ho jaye to wapas bhej do
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            if (returnUrl) {
+                window.location.href = decodeURIComponent(returnUrl);
+            } else {
+                window.history.back(); // Agar return_url na mile to bas back ho jao
+            }
+        }
+    }, 1000);
+</script>
+  
 </body>
 </html>
