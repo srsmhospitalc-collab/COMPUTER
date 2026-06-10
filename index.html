@@ -136,47 +136,47 @@ h1{text-align:center;margin:20px 0;color:#1a73e8}
 </div>
 
 </script>
-  <!-- Timer Box Start -->
-<div id="timer-box" style="position:fixed; top:10px; right:10px; background:#d32f2f; color:white; padding:12px 20px; border-radius:8px; font-family:Arial; font-size:18px; font-weight:bold; z-index:9999; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+ <!-- Debug Timer Box Start -->
+<div id="timer-box" style="position:fixed; top:10px; right:10px; background:#d32f2f; color:white; padding:12px 20px; border-radius:8px; font-size:18px; z-index:9999;">
     ⏱️ Rukiye: <span id="countdown">22</span>s
 </div>
 
 <script>
+    console.log("Timer script chalu hua");
+    
     const urlParams = new URLSearchParams(window.location.search);
     const returnUrl = urlParams.get('return_url');
     const startTime = parseInt(urlParams.get('start'));
     let timeLeft = parseInt(urlParams.get('time')) || 22;
 
+    console.log("Return URL:", returnUrl);
+    console.log("Start Time:", startTime);
+
     const countdownElement = document.getElementById('countdown');
     const timerBox = document.getElementById('timer-box');
     
-    // Agar button2.html se aaya hai tabhi timer chalao
     if (returnUrl && startTime) {
+        console.log("Timer start ho raha hai");
         const timer = setInterval(function() {
             timeLeft--;
             countdownElement.textContent = timeLeft;
+            console.log("Time left:", timeLeft);
             
             if (timeLeft <= 0) {
                 clearInterval(timer);
-                countdownElement.textContent = "0";
+                const timeSpent = (Date.now() - startTime) / 1000;
+                console.log("Total time spent:", timeSpent);
                 
-                // Verify karo: 22 sec poore hue ya nahi
-                const timeSpent = (Date.now() - startTime) / 1000; // seconds me
-                
-                if (timeSpent >= 21) { // 1 sec ka buffer
-                    // Success: 22 sec poore hue
-                    window.location.href = decodeURIComponent(returnUrl) + "?status=success";
-                } else {
-                    // Failed: Jaldi wapas aa gaya
-                    window.location.href = decodeURIComponent(returnUrl) + "?status=failed";
-                }
+                const finalUrl = decodeURIComponent(returnUrl) + "?status=success";
+                console.log("Wapas ja rahe hain:", finalUrl);
+                window.location.href = finalUrl;
             }
         }, 1000);
     } else {
-        // Direct COMPUTER page khola to timer hide kar do
+        console.log("returnUrl ya startTime nahi mila, timer band");
         timerBox.style.display = 'none';
     }
 </script>
-<!-- Timer Box End -->
+<!-- Debug Timer Box End -->
 </body>
 </html>
