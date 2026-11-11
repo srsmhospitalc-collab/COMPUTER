@@ -17,7 +17,7 @@ nav a{margin:0 10px;color:#000;text-decoration:none}
 h2{color:#0b3d91;border-left:5px solid #ffcc00;padding-left:10px;margin-top:40px}
 h3{color:#e65100}
 .ad-box{background:#fff3cd;border:1px dashed #ff9800;padding:15px;text-align:center;margin:20px 0}
-.btn{display:inline-block;background:#28a745;color:#fff;padding:12px 25px;text-decoration:none;border-radius:5px;font-weight:bold}
+.btn{display:inline-block;background:#28a745;color:#fff;padding:12px 25px;text-decoration:none;border-radius:5px;font-weight:bold;cursor:pointer}
 footer{background:#222;color:#fff;text-align:center;padding:20px}
 </style>
 </head>
@@ -54,7 +54,7 @@ footer{background:#222;color:#fff;text-align:center;padding:20px}
 <div class="ad-box">
 <h3>🔥 Best Cricket App Download Karein 🔥</h3>
 <p>Live Score, IPL News Aur Fantasy Tips - Sab Kuch Ek Jagah</p>
-<a class="btn" href="http://2108117.bdv-w.bidvertiser.com/BidVertiser.dbm?pid=945272&bid=2108117&xml=1&czero=5&dlt=0&maxcount=1&ownid=[SUBID]&Kterm=[KEYWORDS_ENCODED]&cip=[CLIENT_IP]&bvref=[REFERRER_ENCODED]&u_agnt=[USERAGENT_ENCODED]&bvlang=[BROWSER_LANG-ENCODED]&user_id=[USER_ID]&ch-ua=[Sec-CH-UA]&ch-ua-mobile=[Sec-CH-UA-Mobile]&ch-ua-platform=[Sec-CH-UA-Platform]&ch-ua-platform-version=[Sec-CH-UA-Platform-Version]&ch-ua-full-version-list=[Sec-CH-UA-Full-Version-List]">Download Now</a>
+<a class="btn" href="#" onclick="openBidvertiserXML(); return false;">Download Now</a>
 </div>
 
 <div id="ntv_2108098"></div>
@@ -136,5 +136,19 @@ footer{background:#222;color:#fff;text-align:center;padding:20px}
 <footer>
 <p>© 2026 Cricket Guide | All Rights Reserved</p>
 </footer>
+
+<!-- XML FEED FIX: [SUBID] [CLIENT_IP] ko JS se bhar ke kholega -->
+<script>
+function openBidvertiserXML(){
+  var subid = 'cricket_' + Math.floor(Math.random()*100000);
+  var keywords = encodeURIComponent('cricket ipl live score');
+  var ref = encodeURIComponent(document.referrer || window.location.href);
+  var ua = encodeURIComponent(navigator.userAgent || '');
+  var lang = encodeURIComponent(navigator.language || 'en');
+  var url = 'https://2108117.bdv-w.bidvertiser.com/BidVertiser.dbm?pid=945272&bid=2108117&xml=1&czero=5&dlt=0&maxcount=1&ownid=' + subid + '&Kterm=' + keywords + '&bvref=' + ref + '&u_agnt=' + ua + '&bvlang=' + lang;
+  window.open(url, '_blank');
+}
+</script>
+
 </body>
 </html>
